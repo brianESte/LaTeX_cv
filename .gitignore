@@ -1,0 +1,12 @@
+# Commit notes / template
+.commit_notes
+
+# Intermediate TeX files
+*.aux
+*.fls
+*.fdb_latexmk
+*.log
+*.synctex.*
+
+# PDF / binary files
+*.pdf

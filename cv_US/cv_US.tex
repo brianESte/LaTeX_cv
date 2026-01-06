@@ -1,0 +1,170 @@
+% !TeX program = pdflatex
+\documentclass{article}
+% TODO: create a "CV" class
+
+% reminder that TeX packages can be updated with
+% $ tlmgr --help
+% To search for a package locally:
+% $ tlmgr search <package name>
+% and globally/in the database:
+% $ tlmgr search --global <package name>
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+\geometry{margin=1.5cm} % for example, change the margins to 2 inches all round
+% Load custom CV package, enter title information
+\usepackage{cv_US}
+\name{Brian E. Stephenson}
+% \address{YOUR ADDRESS HERE}
+\phone{PHONE NUMBER HERE}
+% \email{YOUR EMAIL HERE}
+
+% Font setup
+\usepackage[T1]{fontenc}
+\renewcommand{\familydefault}{\sfdefault}
+% Font colors
+\usepackage{xcolor}
+\definecolor{mid-blue}{HTML}{1F497D}
+% Tables
+\usepackage{tabularx}
+% To enable multi-column lists
+\usepackage{multicol}
+
+\usepackage{sectsty}
+\sectionfont{
+	% Change font of \section command
+%	\usefont{OT1}{phv}{b}{n}
+	% bch-b-n: CharterBT-Bold font
+	\sectionrule{0pt}{0pt}{-5pt}{1pt}
+}
+\newcommand{\Section}[1]{\section*{\textcolor{mid-blue}{#1}}}
+
+\begin{document}
+\maketitle
+
+\Section{Education}
+\educationEntry{Technische Universität Darmstadt}{Darmstadt, Germany}{M.S. Mechatronics Engineering GPA: 3.44 (US equivalent)}{January 2026}
+\educationEntry{Virginia Polyechnic Institute \& State University}{Blacksburg, Virginia, USA}{B.S. Mechanical Engineering GPA: 3.65}{April 2017}
+\educationEntry{Technische Universität Darmstadt}{Darmstadt, Germany}{B.S. Mechanical Engineering GPA: 3.365 (US equivalent)}{February 2017}
+\educationEntry{Virginia Western Community College}{Roanoke, VA, USA}{A.S. Engineering GPA: 3.412}{May 2014}
+\educationEntry{Salem High School}{Salem, VA, USA}{Advanced Studies Diploma GPA: 4.142}{June 2012}
+
+\Section{Employment \& Technical Projects}
+\employmentEntry{HMI Display Control System Engineer, NASA, Kennedy Space Center}{Florida}{%
+August 2018 -- December 2018}{%
+	{Developed an improved HMI unit for the mobile launcher resulting in greater ergonomics and functionality},
+Updated CAD drawings of the HMI for documentation and correct machining,
+Wrote PLC code and associated graphical user interfaces to test the HMI,
+{Assisted with functional testing, in both procedural write-up and execution to ensure new components meet NASA standards}
+}
+\employmentEntry{Whitewater Raft Guide, Boy Scouts of America, Blue Ridge Mountains Council}{Virginia}{%
+May 2018 -- July 2018\\June 2011 -- July 2014 (summers)}{
+	{Responsible for taking groups of up to 9 (children and adults) on whitewater rafting trips},
+{Conducted group training sessions, managed equipment integrity, and ensured participant safety},
+{Conducted leadership and team building training sessions using high and low ropes courses},
+Assisted with caving trips,
+Supervised and led scouts on whitewater canoeing trips}
+\employmentEntry{Intern (MBSE Dept), Engineering Methods AG}{Darmstadt, Germany}{%
+May 2017 -- April 2018}{%
+	{Expanded and improved upon existing Model Based Systems Engineering (MBSE) models using Cameo Systems Modeler and MBSE methods resulting in more detailed SysML models},
+	{Developed a SysML elevator model and investigated PTCIM’s code generation tool, discovering the lack of said tool’s functionality},
+	{Created MBSE Models based on client-supervisor meeting sessions to support client projects improving client relations},
+	Advised coworkers on MBSE methods and usage of Cameo Systems Modeler enhancing team knowledge
+}
+\employmentEntry{Professor’s Assistant, Technische Universität Darmstadt}{%
+Darmstadt, Germany}{%
+November 2015 -- March 2016}{%
+%Supported development of a paper for scholarly journals,
+Collected and processed raw data,
+Performed statistical analysis of data and analyzed trends using SPSS,
+Produced graphs and statistics for the professor's scholarly article
+}
+\employmentEntry{Product Design Project, Technische Universität Darmstadt}{%
+Darmstadt, Germany}{%
+October 2015 -- December 2015}{%
+{Part of a team responsible for developing a car mounted SteadiCam system},
+{Created the CAD models that served as the basis for the product design},
+{Analyzed the dynamic response of the system using Simulink to ensure functional goals were met},
+{Performed basic structural analysis using Inventor to verify structural integrity},
+{Utilized effective communication and presentation skills to present design process and results to panel of mentors}
+}
+\employmentEntry{Railgun Project Undergraduate Researcher, Virginia Tech}{%
+Blacksburg, Virginia}{%
+September 2014 -- July 2015}{%
+	{Worked on a multidisciplinary-team project as part of a U.S. Navy-sponsored railgun program},
+	{Completed tasks independently and in small teams},
+	{Assisted in the development of an electromagnetic weapon capable of projectile velocities exceeding 2 km/s}
+}
+\employmentEntry{Autonomous Robot Team Lead, Virginia Western Community College}{%
+Roanoke, Virginia}{%
+September 2010 -- December 2011 (Fall Semesters)}{%
+	{Led a team to develop an autonomous robot capable of navigating the given course and passing the payload to the partner robot},
+	{Generated solution concepts and planned the design in CAD to avoid assembly issues},
+	{Programmed and debugged the robot in BASIC},
+	{Built, tested and revised prototypes using CAD programs and additive manufacturing to design and fabricate the complex parts of the robot},
+	{Worked with a complimentary team to accomplish the overall goal exemplifying teamwork}
+}
+
+\Section{Computer Skills / Languages}
+\hfil
+\begin{tabular}{lcc}
+	Skill & Last used & Proficiency \\
+	\hline
+	Autodesk Inventor & 2016 & 2/5 \\
+	Autodesk AutoCAD & 2018 & 1/5 \\
+	DS Solidworks & 2020 & 1/5 \\
+	% LTSpice & 2017 & 1/5 \\
+	KiCad & 2025 & 4/5 \\
+	Autodesk Eagle & 2020 & 1/5 \\
+\end{tabular}
+\hfil
+\begin{tabular}{lcc}
+	Skill & Last used & Proficiency \\
+	\hline
+	Microsoft Office & 2025 & 3/5 \\
+	% LabVIEW & 2014 & 2/5 \\
+	Matlab / Simulink & 2021 & 1/5 \\
+	C (langauge) & 2025 & 3/5 \\
+	C++ & 2025 & 3/5 \\
+	Python & 2025 & 3/5 \\
+\end{tabular}
+\hfill
+
+\Section{Additional Technical Skills}
+\hfil
+\begin{minipage}{0.94\textwidth}
+\begin{multicols}{2}
+\begin{itemize}[noitemsep]
+	\item Hand soldering: proficient
+	\item Pneumatics / Hydraulics: intermediate
+	\item Programmable Logic Controllers: basic
+	\item Milling: basic
+	\item Turning, Boring: basic
+\end{itemize}
+\end{multicols}
+\end{minipage}
+\hfill
+
+\Section{Languages}
+\begin{center}
+\begin{tabularx}{0.75\textwidth}{X X X X X}
+	& Listening & Reading & Speaking & Writing \\
+	German & 3/5 & 4/5 & 3/5 & 3/5 \\
+	%
+	Spanish & 2/5 & 3/5 & 2/5 & 2/5 \\
+	Russian & 1/5 & 1/5 & 1/5 & 1/5
+	% A1/2
+\end{tabularx}
+\end{center}
+
+\Section{Honors \& Memberships}
+\begin{itemize}
+	\item Eagle Scout, Boy Scouts of America
+	\item Tau Beta Pi, Virginia Beta chapter (Virginia Tech) national engineering honor society
+	\item Career Readiness Certificate – Gold Level, certification from National Organization for Career Credentialing
+	\item National Honor Society, Salem High School
+	\item Distinguished Scholar award, Salem High School
+\end{itemize}
+
+\end{document}

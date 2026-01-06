@@ -1,0 +1,60 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cv_US}[2026]
+
+% What to include?
+% Advanced lists used in employmentEntry
+\RequirePackage{enumitem}
+\RequirePackage{pgffor}
+
+% Create name command
+\newcommand*{\name}[1]{\gdef\@name{#1}}
+% newcommand* is the "non-par" version of newcommand
+% gdef = \global\def...
+% The line above sets the variable "@name" to arg1.
+\newcommand*{\@name}{NAME HERE}
+% define the @name variable and set it to the value given
+% Create address command
+\newcommand*{\address}[1]{\gdef\@address{#1}}
+\newcommand*{\@address}{MAILING ADDRESS HERE}
+% Create phone[number] command
+\newcommand*{\phone}[1]{\gdef\@phone{#1}}
+% \newcommand*{\@phone}{}
+% Create email [address] command
+\newcommand*{\email}[1]{\gdef\@email{#1}}
+\newcommand*{\@email}{EMAIL ADDRESS HERE}
+
+\renewcommand*{\maketitle}{
+\begin{center}
+	\Large
+	\textbf{\@name}
+\end{center}
+\ifx\@phone\undefined
+	% https://en.wikibooks.org/wiki/TeX/if
+\noindent\@address\hfill\hfill\@email
+\else
+\noindent\@address\hfill**\hfill\@phone\hfill**\hfill\@email
+\fi
+\vspace{2pt}
+\hrule height 1pt
+\begin{flushright}
+	% This solution to eliminating the space before the date feels a bit hacky...
+	\setlength{\parskip}{-3mm}
+	\textit{January 2026}
+\end{flushright}
+}
+
+% Education entry
+\newcommand{\educationEntry}[4]{\par\noindent\textbf{#1, #2}\par\noindent #3, #4\bigskip}
+
+% Employment entry
+\newcommand{\employmentEntry}[4]{%
+\par\noindent\textbf{#1, #2}%
+\par\noindent#3
+\begin{itemize}[noitemsep,nolistsep]
+	% https://stackoverflow.com/a/3281778
+	\foreach \task in {#4}{
+		\item \task
+	}
+\end{itemize}
+\bigskip
+}
