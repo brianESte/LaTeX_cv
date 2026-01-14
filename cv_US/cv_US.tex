@@ -30,15 +30,19 @@
 \usepackage{tabularx}
 % To enable multi-column lists
 \usepackage{multicol}
+% Needspace to ensure some content stays together
+\usepackage{needspace}
 
-\usepackage{sectsty}
-\sectionfont{
-	% Change font of \section command
-%	\usefont{OT1}{phv}{b}{n}
-	% bch-b-n: CharterBT-Bold font
-	\sectionrule{0pt}{0pt}{-5pt}{1pt}
+\makeatletter
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+	{-3.5ex \@plus -1ex \@minus -.2ex}%
+	{1.0ex \@plus .2ex}%
+	{\normalfont\Large\bfseries}}
+\makeatother
+
+\newcommand{\Section}[1]{\section*{\textcolor{mid-blue}{#1}}%
+	\hrule height 0.3mm\vspace{4mm}%
 }
-\newcommand{\Section}[1]{\section*{\textcolor{mid-blue}{#1}}}
 
 \begin{document}
 \maketitle
@@ -51,20 +55,54 @@
 \educationEntry{Salem High School}{Salem, VA, USA}{Advanced Studies Diploma GPA: 4.142}{June 2012}
 
 \Section{Employment \& Technical Projects}
+\employmentEntry{Research Assistant, Autonomous Digitization Technologies at Fraunhofer IGD}{%
+Darmstadt, Germany}{%
+March 2024 -- Present}{%
+	{Developed a coverage path planning algorithm to be applied to an object of simple arbitrary geometry},
+	{Proofread coworker's scientific papers},
+	% GEKA project
+	{Refactored code in an embedded project to reduce program size and standardize the computer-microcontroller interface}
+}
+\employmentEntry{Lab Assistant, WalkerChair Project, SIM Institute, TU Darmstadt}{%
+Darmstadt, Germany}{%
+April 2023 -- September 2023}{%
+	{Documented the electrical system and wiring, facilitating design to model verification},
+	{Developed a LED-chain driver for the STM32 platform with numerous display functions},
+	{Improved the stepper motor behavior and expanded the relevant documentation, leading to a smoother travel experience for WalkerChair users}
+}
+\employmentEntry{Contractor for Orano NCS GmbH}{Germany}{November 2021}{%
+	{Developed a program to graphically display pressure readings, simplifying analysis thereof}
+}
+\employmentEntry{Production Engineer, sigo GmbH}{Darmstadt, Germany}{%
+December 2019 -- March 2021}{%
+	{Developed, and managed product CAD models, enabling design-side simulation of functionality},
+	{Designed new parts to satisfy changing customer and supervisor demands},
+	{Prepared demo-models for a virtual exhibition},
+	{Repaired cargo-bikes and supported maintenance tasks},
+	{Assisted with station and bike assembly, increasing company throughput},
+	{Created detailed assembly manuals to reduce mistakes during assembly}
+}
+\employmentEntry{Motors Team Engineer, ASML}{Wilton, Connecticut}{February 2019 -- July 2019}{%
+	{Created and ran simplified thermal stress analyses, greatly reducing time to results},
+	{Created an iterative electromagnetic 2D actuator model using Matlab, accelerating the actuator design process},
+	{Expanded said actuator model to 3D using COMSOL Multiphysics, leading to a more refined actuator simulation},
+	{Advised coworkers on Siemens NX modeling and simulation methods, increasing team knowledge and simulation quality}
+}
 \employmentEntry{HMI Display Control System Engineer, NASA, Kennedy Space Center}{Florida}{%
 August 2018 -- December 2018}{%
 	{Developed an improved HMI unit for the mobile launcher resulting in greater ergonomics and functionality},
-Updated CAD drawings of the HMI for documentation and correct machining,
-Wrote PLC code and associated graphical user interfaces to test the HMI,
-{Assisted with functional testing, in both procedural write-up and execution to ensure new components meet NASA standards}
+	{Updated CAD drawings of the HMI for documentation and correct machining},
+	{Wrote PLC code and associated graphical user interfaces to test the HMI},
+	{Assisted with functional testing, in both procedural write-up and execution to ensure new components meet NASA standards}
 }
 \employmentEntry{Whitewater Raft Guide, Boy Scouts of America, Blue Ridge Mountains Council}{Virginia}{%
 May 2018 -- July 2018\\June 2011 -- July 2014 (summers)}{
 	{Responsible for taking groups of up to 9 (children and adults) on whitewater rafting trips},
-{Conducted group training sessions, managed equipment integrity, and ensured participant safety},
-{Conducted leadership and team building training sessions using high and low ropes courses},
-Assisted with caving trips,
-Supervised and led scouts on whitewater canoeing trips}
+	{Conducted group training sessions, managed equipment integrity, and ensured participant safety},
+	{Conducted leadership and team building training sessions using high and low ropes courses},
+	Assisted with caving trips,
+	Supervised and led scouts on whitewater canoeing trips
+}
 \employmentEntry{Intern (MBSE Dept), Engineering Methods AG}{Darmstadt, Germany}{%
 May 2017 -- April 2018}{%
 	{Expanded and improved upon existing Model Based Systems Engineering (MBSE) models using Cameo Systems Modeler and MBSE methods resulting in more detailed SysML models},
@@ -106,6 +144,8 @@ September 2010 -- December 2011 (Fall Semesters)}{%
 	{Worked with a complimentary team to accomplish the overall goal exemplifying teamwork}
 }
 
+% Ensure Section stays with the table below it
+\needspace{20mm}
 \Section{Computer Skills / Languages}
 \hfil
 \begin{tabular}{lcc}
@@ -114,20 +154,27 @@ September 2010 -- December 2011 (Fall Semesters)}{%
 	Autodesk Inventor & 2016 & 2/5 \\
 	Autodesk AutoCAD & 2018 & 1/5 \\
 	DS Solidworks & 2020 & 1/5 \\
+	Siemens NX & 2019 & 2/5 \\
+	FreeCAD & 2025 & 2/5 \\
 	% LTSpice & 2017 & 1/5 \\
 	KiCad & 2025 & 4/5 \\
 	Autodesk Eagle & 2020 & 1/5 \\
+	Microsoft Office & 2025 & 3/5 \\
+	Cameo Systems Modeler & 2018 & 2/5 \\
 \end{tabular}
 \hfil
 \begin{tabular}{lcc}
 	Skill & Last used & Proficiency \\
 	\hline
-	Microsoft Office & 2025 & 3/5 \\
-	% LabVIEW & 2014 & 2/5 \\
+	COMSOL Multiphysics & 2019 & 1/5 \\
+	LabVIEW & 2014 & 2/5 \\
 	Matlab / Simulink & 2021 & 1/5 \\
 	C (langauge) & 2025 & 3/5 \\
 	C++ & 2025 & 3/5 \\
 	Python & 2025 & 3/5 \\
+	Javascript & 2025 & 3/5 \\
+	Java & 2021 & 1/5 \\
+	Linux/Unix & 2026 & 2/5 \\
 \end{tabular}
 \hfill
 
@@ -149,12 +196,13 @@ September 2010 -- December 2011 (Fall Semesters)}{%
 \Section{Languages}
 \begin{center}
 \begin{tabularx}{0.75\textwidth}{X X X X X}
-	& Listening & Reading & Speaking & Writing \\
-	German & 3/5 & 4/5 & 3/5 & 3/5 \\
-	%
-	Spanish & 2/5 & 3/5 & 2/5 & 2/5 \\
-	Russian & 1/5 & 1/5 & 1/5 & 1/5
-	% A1/2
+	& Reading & Writing & Listening & Speaking \\
+	German & C1 & C1 & C1 & C1 \\
+	% UNIcert III: 2.0, 2.0, 2.0, 1.0
+	Spanish & B2 & B1 & B1 & B1 \\
+	% self estimated
+	Russian & A1 & A1 & A1 & A1
+	% Completed Russian V/VI which covered A1/2
 \end{tabularx}
 \end{center}
 

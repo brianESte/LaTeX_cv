@@ -47,14 +47,16 @@
 \newcommand{\educationEntry}[4]{\par\noindent\textbf{#1, #2}\par\noindent #3, #4\bigskip}
 
 % Employment entry
+% Organization, position, dates, responsibilities
 \newcommand{\employmentEntry}[4]{%
-\par\noindent\textbf{#1, #2}%
-\par\noindent#3
-\begin{itemize}[noitemsep,nolistsep]
-	% https://stackoverflow.com/a/3281778
-	\foreach \task in {#4}{
-		\item \task
-	}
-\end{itemize}
-\bigskip
-}
+	\parbox{\textwidth}{
+	\par\noindent\textbf{#1, #2}%
+	\par\noindent#3
+	\begin{itemize}[noitemsep,nolistsep]
+		% https://stackoverflow.com/a/3281778
+		\foreach \task in {#4}{
+			\item \task
+		}
+	\end{itemize}
+	\bigskip
+}}
