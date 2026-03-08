@@ -5,6 +5,7 @@
 % Advanced lists used in employmentEntry
 \RequirePackage{enumitem}
 \RequirePackage{pgffor}
+\RequirePackage{xparse}
 
 % Create name command
 \newcommand*{\name}[1]{\gdef\@name{#1}}
@@ -46,15 +47,15 @@
 % Education entry
 \newcommand{\educationEntry}[4]{\par\noindent\textbf{#1, #2}\par\noindent #3, #4\bigskip}
 
-% Employment entry
-% Organization, position, dates, responsibilities
-\newcommand{\employmentEntry}[4]{%
+%% Employment entry
+% Position, organization, location, dates, responsibilities
+\NewDocumentCommand{\employmentEntry}{m m d[] m m}{%
 	\parbox{\textwidth}{
-	\par\noindent\textbf{#1, #2}%
-	\par\noindent#3
+	\par\noindent\textbf{#2, #1}%
+	\par\noindent#4
 	\begin{itemize}[noitemsep,nolistsep]
 		% https://stackoverflow.com/a/3281778
-		\foreach \task in {#4}{
+		\foreach \task in {#5}{
 			\item \task
 		}
 	\end{itemize}
