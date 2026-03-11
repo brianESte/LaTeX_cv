@@ -1,0 +1,189 @@
+% !TeX program = pdflatex
+\documentclass{article}
+% TODO: create a "CV" class
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+\geometry{margin=1.5cm}
+% Load custom CV package, enter title information
+\usepackage{../templates/cv_DE}
+\name{Brian Stephenson}
+% \birthday{} % Geburtsdatum
+% \birthplace{} % Geburtsort
+% \nationality{} % Staatsangehörigkeit
+% \familyStatus{} % Familienstand
+% \address{Straße}{Wohnort} % Anschrift
+% \phone{} % Telephonnummer
+% \email{} % Email-adresse
+
+\usepackage{tabularx}
+% ^- for languages table
+\usepackage{multicol}
+% ^- for technical skills and \multicolumn
+
+\usepackage{sectsty}
+% NOTE: i would like to be able to have consistent under-section line spacing
+% without sectsty... but have so far been unable to do so
+\sectionfont{\sectionrule{0ex}{0pt}{-3pt}{0.2pt}}
+
+%%% Actual content
+\begin{document}
+\maketitle
+
+\Section{Berufserfahrung}
+\employmentEntry{Hilfswissenschaftler}{Autonomous Digitization Technologies bei Fraunhofer IGD}
+	[Darmstadt]{03/2024 -- }{%
+	% {Developed a coverage path planning algorithm to be applied to an object of simple arbitrary geometry},
+	{Entwicklung eines Algorithmus für Pfadplannung auf einem Objekt einfacher arbiträrer Geometrie},
+	% {Proofread coworker's scientific papers},
+	{Lektorierung von wissenschaftlichen Arbeiten von Mitarbeitern},
+	% GEKA project
+	% {Refactored code in an embedded project to reduce program size and standardize the computer-microcontroller interface},
+	{Umarbeitung von Code eines eingebetteten Projekts, um Programgröße anzupassen und die Schnittstelle zwischen Rechner und Mikrokonroller zu vereinheitlichen}
+}
+\employmentEntry{Hilfswissenschaftler beim WalkerChair Project}{SIM Institute, TU Darmstadt}
+{04/2023 -- 09/2023}{%
+	{Entwicklung eines LED-Kettentreiberbibliothek für die STM32 Plattform mit mehreren Anzeigefunktionen},
+	% {Improved the stepper motor behavior and expanded the relevant documentation, leading to a smoother travel experience for WalkerChair users},
+	{Verbesserung vom Schrittmotorverhalten und Erweiterung der zugehörigen Dokumentation},
+	% {Documented the electrical system and wiring, facilitating design to model verification},
+	{Dokumentierung des elektrischen Systems und der Kabelung}
+}
+\employmentEntry{Kontraktor}{Orano NCS GmbH}{11/2021}{Entwicklung eines Programms um Druckdaten schnell zu plotten%als Grafik darzustellen
+}
+\employmentEntry{Engineering Team Werkstudent}{sigo GmbH}[Darmstadt]{12/2019 -- 03/2021}{%
+  {Erzeugung und Verwaltung von 3D-Modellen ihrer Fahrräder und Stationen},
+  {Entwicklung von neuen Komponenten, um sich ändernde Kunden- und Betreueranforderungen zu erfüllen},
+  {Vorbereitung von Demo-Modelle für eine digitale Messe},
+  {Reparatur und Wartung von Lastenräder},
+  {Erstellung einer detailierten Fahrradkonstruktionseinleitung, um Qualität und Reproduzierbarkeit zu erhöhen},
+  {Konstruktion von Lastenrader sowie Stationen}
+}
+\employmentEntry{Motors Team Engineer}{ASML}[Wilton, Connecticut]{02/2019 -- 07/2019}{%
+	% {Created and ran simplified thermal stress analyses, greatly reducing time to results},
+	{Durchführung von vereinfachten Analysen von thermischen Spannungen, was zu schnellere Ergnisse führte},
+	% {Created an iterative electromagnetic 2D actuator model using Matlab, accelerating the actuator design process},
+	{Erzeugung eines iterativen elektromagnetischen 2D Aktuatormodel mittels MATLAB},
+	% {Expanded said actuator model to 3D using COMSOL Multiphysics, leading to a more refined actuator simulation},
+	{Erweiterung des EM-Modells zu 3D mittels COMSOL Multiphysics},
+	% {Advised coworkers on Siemens NX modeling and simulation methods, increasing team knowledge and simulation quality},
+	{Mitarbeiter an Modelierungs- und Simulationsmethoden mittels Siemens NX beraten, was Fachwissen des Teams und Simulationsqualität verbesserte}
+}
+\employmentEntry{Praktikant}{NASA, Kennedy Space Center}[Florida]{%
+08/2018 -- 12/2018}{%
+	% {Developed an improved HMI unit for the mobile launcher, resulting in greater ergonomics and functionality},
+	{Entwicklung einer verbesserten Mensch-Maschine-Schnittstelle für das Mobile Launcher},
+	% {Updated CAD drawings of the HMI for documentation and correct machining},
+	{Aktualisierung von CAD-Zeichnungen der MMS für Dokumentation und Abarbeiten},
+	% {Wrote PLC code and associated graphical user interfaces to test the HMI},
+	{SPS Code sowie zugehörigen GUI geschrieben, um die MMI zu testen},
+	% {Assisted with functional testing, in both procedural write-up and execution to ensure new components meet NASA standards},
+	{Funktionales Testen, beim Schreiben des Vorgehensweiseprotokol sowie Durchführung davon, um zu bestätigen, dass neue Komponenten NASA-Normen entsprechen}
+}
+\employmentEntry{New River Adventure Personal}{Boy Scouts of America, Blue Ridge Mountains Council}[Virginia]{%
+05/2018 -- 07/2018\\06/2011 -- 07/2014 (Sommer)}{
+	% {Responsible for taking groups of up to 9 (children and adults) on whitewater rafting trips},
+	{Guide von Wildwasserflöten für Pfadfinder und Erwachsene},
+	% {Conducted leadership and team building training sessions using high and low ropes courses},
+	{Durchleitung von Führungs- und mannschaftsbildende Übungen mittels Hoch- und Niedrigseilgärten},
+	{Bei Höhlenerkundungsreisen aushelfen},
+	{Überwachung und Führung von Pfadfinder an Wildwasserkanoereisen}
+}
+\employmentEntry{Praktikant im Bereich Model Based Systems Engineering}{Engineering Methods AG}[Darmstadt]{05/2017 -- 04/2018}{%
+	{Erweiterung und Verbesserung von vorhandenen MBSE-Modelle mittels Cameo Systems Modeler},
+	{Entwicklung eines SysML Aufzugsmodel},
+	{Erzeugung von MBSE-Modelle basiert auf Kundentreffen, um Kundenprojekte zu unterstützen},
+	{Mitarbeiter an MBSE-Methoden und der Benutzung von Cameo Systems Modeler beraten}
+}
+% This was a chem professor in a ME dept, i think...
+\employmentEntry{Hilfswissenschaftler}{TU Darmstadt, Fachgebiet Thermische Verfahrenstechnik}{11/2015 -- 03/2016}{%
+%Supported development of a paper for scholarly journals,
+	{Sammlung und Verarbeitung von Rohdaten},
+	{Ausführung von statistischer Analyse der Daten sowie Tendenzen mittels SPSS},
+	% Produced graphs and statistics for the professor's scholarly article
+	{Erstellung von Graphiken und Maßzahlen für den Hauptautor des Papers}
+}
+\employmentEntry{Hilfwissenschaftler beim Railgun Project}{Virginia Tech}[Blacksburg, Virginia]{%
+	09/2014 -- 07/2015}{%
+	{Multidisziplinäres Forschungsprojekt als Teil eines von der U.S. Navy unterstützten Railgun-Programms}
+}
+\employmentEntry{Teimleiter bei einem autonomen Roboterwettbewerb}{Virginia Western Community College}{%
+	09/2010 -- 12/2011 (Herbstsemester)}{%
+	% {Led a team to develop an autonomous robot capable of navigating the given course and passing the payload to the partner robot},
+	{Entwicklung einer Lösung zur gegebenen Aufgabe als Gruppe},
+	% {Generated solution concepts and planned the design in CAD to avoid assembly issues},
+	% {Programmed and debugged the robot in BASIC},
+	% {Built, tested and revised prototypes using CAD programs and additive manufacturing to design and fabricate the complex parts of the robot},
+	% {Worked with a complimentary team to accomplish the overall goal exemplifying teamwork}
+	{Programmierung und Konstruktion eines kleinen autonomen Roboters}
+}
+
+\Section{Bildung}
+% Education entry: School, dates, degree, GPA
+\educationEntry{Technische Universität Darmstadt, Fachbereich Elektrotechnik und Informationstechnik}{10/2019 -- 11/2025}{M.Sc. Mechatronik, Vertiefung: Robotik}{GPA: 1,780}
+\educationEntry{Technische Universität Darmstadt, Fachbereich Maschinenbau}{07/2015 -- 03/2017}{B.Sc. Maschinenbau}{GPA: 2,020}
+\educationEntry{Virginia Polytechnic Institute and State University, School of Engineering}{08/2013 -- 06/2017}{B.Sc. Maschinenbau}{US GPA: 3.650}
+\educationEntry{Virginia Western Community College}{09/2011 -- 05/2014}{A.Sc. Engineering}{US GPA: 3.412}
+
+\Section{Computer-Fähigkeiten}
+% TODO: consider explaining the last usage/project of each skill/language...
+% NOTE: thinking it might be better without the hollow stars
+\hfil
+\skillList{Fähigkeit}{%
+	{Autodesk Inventor,2},
+	{Autodesk AutoCAD,1},
+	{DS Solidworks,1},
+	{Siemens NX,2},
+	{FreeCAD,2},
+	% {LTSpice,1},
+	{KiCad,4},
+	{Autodesk Eagle,1},
+	{Microsoft Office,3},
+	{Cameo Systems Modeler,2},
+}{\starFilled}{\starHollow}
+\hfil
+\skillList{Fähigkeit}{%
+	{COMSOL Multiphysics,1},
+	{LabVIEW,2},
+	{Matlab / Simulink,1},
+	{C (langauge),3},
+	{C++,3},
+	{Python,3},
+	{Javascript,3},
+	{Java,1},
+	{Linux/Unix,2},
+}{\starFilled}{\starHollow}
+\hfill
+
+\Section{Weitere Technische Fähigkeiten}
+% NOTE: Also thinking about changing this to a single column list to describe the most recent project / use of each skill
+\begin{multicols}{2}
+\begin{itemize}[noitemsep]
+  \item Löten: kompetent
+  \item Speicherprogrammierbare Steuerung (PLC): Mittelkompetent
+  \item Pneumatische Systeme: Mittelkompetent
+	\item Hydraulische Systeme: Anfänger
+  \item Fräsen: Anfänger
+  \item Drehmaschine: Anfänger
+\end{itemize}
+\end{multicols}
+
+\Section{Sprachen}
+% It feels a little silly to break the language competences into the 4 components..
+% Typically they are all evaluated against the same level..
+\begin{center}
+	\begin{tabularx}{0.75\textwidth}{X | >{\centering}X >{\centering}X >{\centering}X >{\centering\arraybackslash}X}
+	\multicolumn{1}{c}{} & Lesen & Schreiben & Zuhören & Sprechen \\
+	\cline{2-5}
+  Englisch & \multicolumn{4}{c}{Muttersprache} \\
+  Deutsch & C1 & C1 & C1 & C1 \\
+	% UNIcert III: 2.0, 2.0, 2.0, 1.0
+  Spanisch & B2 & B1 & B1 & B1 \\
+	% self estimated
+  Russisch & A1 & A1 & A1 & A1
+	% Completed Russian V/VI which covered A1/2
+\end{tabularx}
+\end{center}
+
+\end{document}
