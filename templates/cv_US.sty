@@ -7,6 +7,14 @@
 \RequirePackage{pgffor}
 \RequirePackage{xparse}
 
+% Set date format
+\RequirePackage[english]{datetime2}
+\DTMnewdatestyle{mmmyyyy}{
+	\renewcommand*{\DTMdisplaydate}[4]{\DTMenglishmonthname{##2}~{##1}}%
+	\renewcommand*{\DTMDisplaydate}{\DTMdisplaydate}%
+}
+\DTMsetdatestyle{mmmyyyy}
+
 % Create name command
 \newcommand*{\name}[1]{\gdef\@name{#1}}
 % newcommand* is the "non-par" version of newcommand
@@ -40,7 +48,7 @@
 \begin{flushright}
 	% This solution to eliminating the space before the date feels a bit hacky...
 	\setlength{\parskip}{-3mm}
-	\textit{January 2026}
+	\textit{\DTMtoday}
 \end{flushright}
 }
 

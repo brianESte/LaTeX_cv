@@ -24,6 +24,14 @@
 	\end{tikzpicture}
 }
 
+% Simple placeholder image, based on
+% https://gist.github.com/dpgettings/9635856
+\newcommand{\placeholderimage}[4]{
+	\fbox{\begin{minipage}[#3][#1][c]{#2}%
+		\centering{#4}
+	\end{minipage}}
+}
+
 %% Section header
 \newcommand{\Section}[1]{\section*{\textcolor{gray}{\textbf{#1}}}}
 
@@ -50,6 +58,9 @@
 % Create email [address] command
 \newcommand*{\email}[1]{\gdef\@email{#1}}
 \newcommand*{\@email}{$\langle$\texttt{E-Mail-Adresse}$\rangle$}
+% Create (profile) picture command
+\newcommand*{\profilepicture}[1]{\gdef\@profilepicture{#1}}
+\newcommand*{\@profilepicture}{}
 
 \renewcommand*{\maketitle}{
 \Section{Persönliche Daten}
@@ -74,8 +85,12 @@
 }%
 \settoheight{\tableHeight}{\usebox{\tableBox}}
 \usebox{\tableBox}%
-\hfil
-\includegraphics[height=\tableHeight]{../res/beige_wall_cropped.jpg}
+\hfil%
+\ifdefempty{\@profilepicture}{%
+	\placeholderimage{\tableHeight}{0.2\textwidth}{b}{$\langle$Profilbild$\rangle$}
+}{%
+	\includegraphics[height=\tableHeight]{\@profilepicture}
+}
 }
 
 
