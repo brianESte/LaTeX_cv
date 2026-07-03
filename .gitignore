@@ -7,6 +7,10 @@
 *.fdb_latexmk
 *.log
 *.synctex.*
+*.out
 
 # PDF / binary files
 *.pdf
+
+# Rich text formats
+*.docx
