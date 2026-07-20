@@ -18,6 +18,7 @@
 }
 \RequirePackage{ifthen}
 \RequirePackage{enumitem}
+\RequirePackage{multicol}
 \RequirePackage{pgffor}
 \RequirePackage{etoolbox}
 \RequirePackage{xparse}
@@ -54,23 +55,29 @@
 \ProcessKeyvalOptions*
 % In LaTeX, you can define class options to change command styles, such as using `\DeclareOption{green}{\renewcommand{\headlinecolor}{\color{green}}}` to alter the `\headlinecolor` command based on the class option specified.
 
-\ifthenelse{\equal{\myclass@themeColor}{blue}}{%
-	\definecolor{primaryColor}{RGB}{0, 43, 128}%
-	\definecolor{secondary}{RGB}{204, 229, 255}%
-}{%
-	\ifthenelse{\equal{\myclass@themeColor}{green}}{%
-		\definecolor{primaryColor}{RGB}{0, 153, 0}%
-		\definecolor{secondary}{RGB}{204, 255, 204}%
-	}{%
-		\ifthenelse{\equal{\myclass@themeColor}{red}}{%
-			\definecolor{primaryColor}{RGB}{204, 0, 0}%
-			\definecolor{secondary}{RGB}{255, 204, 204}%
-		}{%
-			\definecolor{primaryColor}{RGB}{0, 102, 204}%
-			\definecolor{secondary}{RGB}{204, 229, 255}%
-		}%
-	}%
+\ExplSyntaxOn
+\str_case:VnF{\myclass@themeColor}{
+	{blue}{
+\definecolor{primaryColor}{RGB}{0, 43, 128}%
+\definecolor{secondary}{RGB}{204, 229, 255}%
+	}
+	{green}{
+\definecolor{primaryColor}{RGB}{0, 153, 0}%
+\definecolor{secondary}{RGB}{204, 255, 204}%
+	}
+	{red}{
+\definecolor{primaryColor}{RGB}{204, 0, 0}%
+\definecolor{secondary}{RGB}{255, 204, 204}%
+	}
+	{lightBlue}{
+\definecolor{primaryColor}{RGB}{0, 102, 204}%
+\definecolor{secondary}{RGB}{204, 229, 255}%
+	}
+}{% Default is dark gray
+\definecolor{primaryColor}{RGB}{80, 80, 80}%
+\definecolor{secondary}{RGB}{100, 100, 100}%
 }
+\ExplSyntaxOff
 
 \newcommand{\Section}[1]{\section*{\textcolor{primaryColor}{\textbf{#1}}}}
 
@@ -98,28 +105,31 @@
 \newcommand*{\profilepicture}[1]{\gdef\@profilepicture{#1}}
 \newcommand*{\@profilepicture}{}
 % Set default values based on language
-% TODO: consider changing this to str_case?
-\ifthenelse{\equal{\myclass@lang}{EN}}{%
-	\newcommand*{\@birthday}{$\langle$\texttt{Birthday}$\rangle$}
-	\newcommand*{\@birthplace}{$\langle$\texttt{Birthplace}$\rangle$}
-	\newcommand*{\@nationality}{$\langle$\texttt{Nationality}$\rangle$}
-	\newcommand*{\@familyStatus}{$\langle$\texttt{Family Status}$\rangle$}
-	\newcommand*{\@addressStreet}{$\langle$\texttt{Address}$\rangle$}
-	\newcommand*{\@addressZIP}{$\langle$\texttt{ZIP code}$\rangle$}
-	\newcommand*{\@addressCity}{$\langle$\texttt{City}$\rangle$}
-	\newcommand*{\@phone}{$\langle$\texttt{Phone Number}$\rangle$}
-	\newcommand*{\@email}{$\langle$\texttt{E-Mail Address}$\rangle$}
-}{%
-	\newcommand*{\@birthday}{$\langle$\texttt{Geburtsdatum}$\rangle$}
-	\newcommand*{\@birthplace}{$\langle$\texttt{Geburtsort}$\rangle$}
-	\newcommand*{\@nationality}{$\langle$\texttt{Staatsangehörigkeit}$\rangle$}
-	\newcommand*{\@familyStatus}{$\langle$\texttt{Familienstand}$\rangle$}
-	\newcommand*{\@addressStreet}{$\langle$\texttt{Address}$\rangle$}
-	\newcommand*{\@addressZIP}{$\langle$\texttt{ZIP code}$\rangle$}
-	\newcommand*{\@addressCity}{$\langle$\texttt{City}$\rangle$}
-	\newcommand*{\@phone}{$\langle$\texttt{Mobilnummer}$\rangle$}
-	\newcommand*{\@email}{$\langle$\texttt{E-Mail-Adresse}$\rangle$}
+\ExplSyntaxOn
+\str_case:VnF{\myclass@lang} {
+	{DE}{
+\newcommand*{\@birthday}{$\langle$\texttt{Geburtsdatum}$\rangle$}
+\newcommand*{\@birthplace}{$\langle$\texttt{Geburtsort}$\rangle$}
+\newcommand*{\@nationality}{$\langle$\texttt{Staatsangehörigkeit}$\rangle$}
+\newcommand*{\@familyStatus}{$\langle$\texttt{Familienstand}$\rangle$}
+\newcommand*{\@addressStreet}{$\langle$\texttt{Adresse}$\rangle$}
+\newcommand*{\@addressZIP}{$\langle$\texttt{PLZ}$\rangle$}
+\newcommand*{\@addressCity}{$\langle$\texttt{Stadt}$\rangle$}
+\newcommand*{\@phone}{$\langle$\texttt{Mobilnummer}$\rangle$}
+\newcommand*{\@email}{$\langle$\texttt{E-Mail-Adresse}$\rangle$}
+	}
+}{
+\newcommand*{\@birthday}{$\langle$\texttt{Birthday}$\rangle$}
+\newcommand*{\@birthplace}{$\langle$\texttt{Birthplace}$\rangle$}
+\newcommand*{\@nationality}{$\langle$\texttt{Nationality}$\rangle$}
+\newcommand*{\@familyStatus}{$\langle$\texttt{Family~Status}$\rangle$}
+\newcommand*{\@addressStreet}{$\langle$\texttt{Address}$\rangle$}
+\newcommand*{\@addressZIP}{$\langle$\texttt{ZIP~code}$\rangle$}
+\newcommand*{\@addressCity}{$\langle$\texttt{City}$\rangle$}
+\newcommand*{\@phone}{$\langle$\texttt{Phone~Number}$\rangle$}
+\newcommand*{\@email}{$\langle$\texttt{E-Mail~Address}$\rangle$}
 }
+\ExplSyntaxOff
 
 
 %%%%%  ~~~~~~~~~~~~~~~~~~~~   (re)Create maketitle   ~~~~~~~~~~~~~~~~~~~~  %%%%%
@@ -146,7 +156,7 @@
 \end{flushright}
 	}% end title 0
 	{ 1 }{% begin title 1: originally DE CV
-\Section{Persönlich~Daten}
+\Section{Persönliche~Daten}
 % table with 1 column next to an image
 \newsavebox{\tableBox}%
 \newlength{\tableHeight}%
@@ -223,10 +233,10 @@
 	dotline/.style={%
 		blanker,
 		box align=top,
-		left=3mm, top=-1.4mm,
+		left=3mm, top=-1.3mm,
 		valign=top,
 		borderline west={0.3mm}{-0.1mm}{primaryColor},
-		overlay={\draw[fill=primaryColor] (frame.north west) circle (3.2pt);}
+		overlay={\draw[fill=primaryColor,draw=none] (frame.north west) circle (3.4pt);}
 	}
 }
 
@@ -348,6 +358,23 @@
 \ExplSyntaxOff
 
 %%%%%  ~~~~~~~~~~~~~~~~~~~~    Skills Information    ~~~~~~~~~~~~~~~~~~~~  %%%%%
+%%% Skill list
+% List title (optional), list of skills
+\NewDocumentCommand{\skillListShort}{o m m}{%
+% NOTE: renew-do must be outside of tabular environment,
+% otherwise only the first item in the list will be processed
+% NOTE: \do only ever has 1 argument
+\renewcommand*{\do}[1]{\item[#3] ##1}
+\begin{multicols}{4}
+	\begin{itemize}[itemsep=1pt]
+		% NOTE: For info on \docsvlist, see
+		% https://ctan.net/macros/latex/contrib/etoolbox/etoolbox.pdf
+		\docsvlist{#2}
+	\end{itemize}
+\end{multicols}
+}
+
+%%% Skill list (mid) functions
 %% Shape functions
 % Define shape keys
 % Read this for more details: https://tikz.dev/pgfkeys
@@ -360,37 +387,30 @@
 	star/.style={star, star point height=2.9mm},
 	dart/.style={dart}
 }
-% TODO: add color option
-% starShape - * version produces a filled star
-\NewDocumentCommand{\skillShape}{s O{black} m}{%
+
+% *(filled), [color], shape
+\NewDocumentCommand{\skillLvlShape}{s O{primaryColor} m}{%
 	\IfBooleanTF{#1}{\def\fillStyle{#2}}{\def\fillStyle{none}}%
 	\begin{tikzpicture}[scale=0.4, transform shape, baseline=-3pt]
 		\node [/shapeKeys/#3, minimum size=7mm, draw=#2, fill=\fillStyle] {};
 	\end{tikzpicture}~%
 }
 
-%% Count the number of items in a list
-% \newcommand{\countItems}[1]{%
-% 	\newcounter{c}%
-% 	\foreach \i in {#1}{\stepcounter{c}}%
-% 	\thec%
-% }
-
-% skill name, skill level, shape, optional color? or accent color
-\NewDocumentCommand{\skillListEntry}{m m m}{%
+% skill name, skill level, shape, [color]
+\NewDocumentCommand{\skillLvlListEntry}{m m m o}{%
 	\large%
-	#1 & \ifnum #2>0 {\foreach \i in {1,...,#2} {\skillShape*{#3}}}\fi%
-		\ifnum #2<5 {\foreach \i in {#2,...,4} {\skillShape{#3}}}\fi\\
+	#1 & \ifnum #2>0 {\foreach \i in {1,...,#2} {\skillLvlShape*[#4]{#3}}}\fi%
+	\ifnum #2<5 {\foreach \i in {#2,...,4} {\skillLvlShape[#4]{#3}}}\fi\\
 	% \smallskip%
 }
 
-%% Skill list
-% List title, list of skills (name-lvl pairs), filled symbol, hollow symbol
-\NewDocumentCommand{\skillList}{o m m}{%
+%% Skill list (mid-level details: name + skill level)
+% List title (optional), list of skills (name-lvl pairs), shape, [color]
+\NewDocumentCommand{\skillLevelList}{o m m o}{%
 	% NOTE: renew-do must be outside of tabular environment,
 	% otherwise only the first item in the list will be processed
 	% NOTE: \do only ever has 1 argument
-	\RenewDocumentCommand{\do}{>{\SplitArgument{1}{,}}m}{\skillListEntry##1{#3}}
+	\RenewDocumentCommand{\do}{>{\SplitArgument{1}{,}}m}{\skillLvlListEntry##1{#3}[#4]}
 	\def\arraystretch{1.2}%
 \begin{tabular}{ll}
 	\IfValueT{#1}{\multicolumn{2}{l}{\large#1} \\}

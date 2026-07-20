@@ -1,13 +1,12 @@
 % !TeX program = pdflatex
-\documentclass{article}
-% TODO: create a "CV" class
+\documentclass[
+	themeColor=blue,
+	lang=DE,
+	titleStyle=1,
+	jobExpStyle=1,
+	eduStyle=1
+]{../templates/cv_res}
 
-%%% PAGE DIMENSIONS
-\usepackage{geometry} % to change the page dimensions
-\geometry{a4paper} % or letterpaper (US) or a5paper or....
-\geometry{margin=1.5cm}
-% Load custom CV package, enter title information
-\usepackage{../templates/cv_DE}
 \name{Brian Stephenson}
 % \birthday{} % Geburtsdatum
 % \birthplace{} % Geburtsort
@@ -20,8 +19,6 @@
 
 \usepackage{tabularx}
 % ^- for languages table
-\usepackage{multicol}
-% ^- for technical skills and \multicolumn
 
 \usepackage{sectsty}
 % NOTE: i would like to be able to have consistent under-section line spacing
@@ -41,7 +38,9 @@
 	{Lektorierung von wissenschaftlichen Arbeiten von Mitarbeitern},
 	% GEKA project
 	% {Refactored code in an embedded project to reduce program size and standardize the computer-microcontroller interface},
-	{Umarbeitung von Code eines eingebetteten Projekts, um Programgröße anzupassen und die Schnittstelle zwischen Rechner und Mikrokonroller zu vereinheitlichen}
+	{Umarbeitung von Code eines eingebetteten Projekts, um Programgröße anzupassen und die Schnittstelle zwischen Rechner und Mikrokonroller zu vereinheitlichen},
+	% {Refactored and expanded upon a codebase managing multiple serial peripheral connections to enhance program functionality and code readability}
+	{Umarbeitung und Erweiterung eines Raspberry Pi Projekts, der mehrere serielle Schnittstellen verwaltet, um Programmfunktionalität und Codelesbarkeit aufzuwerten}
 }
 \employmentEntry{Hilfswissenschaftler beim WalkerChair Project}{SIM Institute, TU Darmstadt}
 {04/2023 -- 09/2023}{%
@@ -103,21 +102,24 @@
 	{Sammlung und Verarbeitung von Rohdaten},
 	{Ausführung von statistischer Analyse der Daten sowie Tendenzen mittels SPSS},
 	% Produced graphs and statistics for the professor's scholarly article
-	{Erstellung von Graphiken und Maßzahlen für den Hauptautor des Papers}
+	{Erstellung von Graphiken und Maßzahlen für die Hauptautorin des Papers}
 }
 \employmentEntry{Hilfwissenschaftler beim Railgun Project}{Virginia Tech}[Blacksburg, Virginia]{%
 	09/2014 -- 07/2015}{%
 	{Multidisziplinäres Forschungsprojekt als Teil eines von der U.S. Navy unterstützten Railgun-Programms}
 }
-\employmentEntry{Teimleiter bei einem autonomen Roboterwettbewerb}{Virginia Western Community College}{%
+\employmentEntry{Teamleiter bei einem autonomen Roboterwettbewerb}{Virginia Western Community College}{%
 	09/2010 -- 12/2011 (Herbstsemester)}{%
 	% {Led a team to develop an autonomous robot capable of navigating the given course and passing the payload to the partner robot},
-	{Entwicklung einer Lösung zur gegebenen Aufgabe als Gruppe},
+	{Leitung einer Studentengruppe um einen Roboter zu entwickeln, der die Wettbewerbspiste navigieren konnte},
+	% {Entwicklung einer Lösung zur gegebenen Aufgabe als Gruppe},
+	{Erstellung von Lösungskonzepte mittels CAD um Probleme bei der Fertigung zu vermeiden},
 	% {Generated solution concepts and planned the design in CAD to avoid assembly issues},
+	{Programmierung und Fehlerbehebung des Roboters in der BASIC Sprache}
 	% {Programmed and debugged the robot in BASIC},
 	% {Built, tested and revised prototypes using CAD programs and additive manufacturing to design and fabricate the complex parts of the robot},
 	% {Worked with a complimentary team to accomplish the overall goal exemplifying teamwork}
-	{Programmierung und Konstruktion eines kleinen autonomen Roboters}
+	% {Programmierung und Konstruktion eines kleinen autonomen Roboters}
 }
 
 \Section{Bildung}
@@ -127,11 +129,15 @@
 \educationEntry{Virginia Polytechnic Institute and State University, School of Engineering}{08/2013 -- 06/2017}{B.Sc. Maschinenbau}{US GPA: 3.650}
 \educationEntry{Virginia Western Community College}{09/2011 -- 05/2014}{A.Sc. Engineering}{US GPA: 3.412}
 
+\Section{Ehrenamtliche Arbeit}
+\employmentEntry*{Reparaturer}{Martinsviertel RepairCafé}[Darmstadt]{10.2021 -- }{%
+	{Fehlerdiagnose und Reparatur von defekten elektronischen und mechanischen Geräte}
+}
+
 \Section{Computer-Fähigkeiten}
-% TODO: consider explaining the last usage/project of each skill/language...
 % NOTE: thinking it might be better without the hollow stars
 \hfil
-\skillList{Fähigkeit}{%
+\skillLevelList[Fähigkeit]{%
 	{Autodesk Inventor,2},
 	{Autodesk AutoCAD,1},
 	{DS Solidworks,1},
@@ -141,10 +147,10 @@
 	{KiCad,4},
 	{Autodesk Eagle,1},
 	{Microsoft Office,3},
-	{Cameo Systems Modeler,2},
-}{\starFilled}{\starHollow}
+	{Cameo Systems Modeler,2}
+}{circle}[black]
 \hfil
-\skillList{Fähigkeit}{%
+\skillLevelList[Fähigkeit]{%
 	{COMSOL Multiphysics,1},
 	{LabVIEW,2},
 	{Matlab / Simulink,1},
@@ -154,12 +160,13 @@
 	{Javascript,3},
 	{Java,1},
 	{Linux/Unix,2},
-}{\starFilled}{\starHollow}
+}{circle}[black]
 \hfill
 
 \Section{Weitere Technische Fähigkeiten}
 % NOTE: Also thinking about changing this to a single column list to describe the most recent project / use of each skill
 \begin{multicols}{2}
+	\large
 \begin{itemize}[noitemsep]
   \item Löten: kompetent
   \item Speicherprogrammierbare Steuerung (PLC): Mittelkompetent
@@ -172,11 +179,14 @@
 
 \Section{Sprachen}
 \hspace{5.5mm}
+{
+	\large
 \begin{tabular}{p{3cm}p{4cm}}
 	Englisch & Muttersprache \\
 	Deutsch & C1 (Unicert II) \\
 	Spanisch & B1 \\
 	Russisch & A1
 \end{tabular}
+}
 
 \end{document}
